@@ -1,17 +1,22 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 
-class addStudent extends Component {
-    static propTypes = {
-        prop: PropTypes
+
+class AddStudent extends Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+
+        }
     }
+
 
     render() {
         return (
             <div>
-                <h1>addStudent test</h1>
+                <h1>AddStudent test</h1>
             </div>
         )
     }
 }
-export default addStudent;
+export default AddStudent;

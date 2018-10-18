@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+
 
 class history extends Component {
-    static propTypes = {
-        prop: PropTypes
+    constructor(props) {
+        super(props)
+
+        this.state = {
+
+        }
     }
+
 
     render() {
         return (
