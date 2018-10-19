@@ -4,7 +4,7 @@ import Home from './components/home';
 import Pairing from './components/pairing'
 import history from './components/history';
 import AddStudent from "./components/addStudent"
-import SimpleModal from './components/alo'
+
 class App extends Component {
   render() {
     return (

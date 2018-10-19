@@ -15,13 +15,12 @@ class Home extends Component {
             <div style={{
                 left: "40%",
                 top: "40%",
-                backgroundColor: "#1a8cff",
                 padding: "150px"
             }}>
                 <Grid container direction="column" justify="space-evenly" alignItems="center" >
 
                     <Grid item>
-                        <Card style={{ backgroundColor: "#ff80d5" }}>
+                        <Card style={{ backgroundColor: "#337ab7" }}>
 
                             <Button style={{
                                 height: "70px",
@@ -38,7 +37,7 @@ class Home extends Component {
                         <br />
                     </Grid>
                     <Grid item>
-                        <Card style={{ backgroundColor: "#ff80d5" }}>
+                        <Card style={{ backgroundColor: "#337ab7" }}>
 
                             <Button style={{
                                 height: "70px",
@@ -55,7 +54,7 @@ class Home extends Component {
                         <br />
                     </Grid>
                     <Grid item>
-                        <Card style={{ backgroundColor: "#ff80d5" }}>
+                        <Card style={{ backgroundColor: "#337ab7" }}>
 
                             <Button style={{
                                 height: "70px",
