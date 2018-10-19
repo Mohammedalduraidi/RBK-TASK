@@ -16,8 +16,7 @@ class Home extends Component {
                 left: "40%",
                 top: "40%",
                 backgroundColor: "#1a8cff",
-                padding: "150px",
-                margin: "0 auto"
+                padding: "150px"
             }}>
                 <Grid container direction="column" justify="space-evenly" alignItems="center" >
 
