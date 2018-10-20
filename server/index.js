@@ -11,11 +11,12 @@ app.post('/addStudent', handler.addStudent)
 app.get('/getStudents', handler.getStudents)
 app.post('/updateLevel', handler.updateLevel)
 app.post('/deleteStudent', handler.deleteStudent)
+app.get('/getParingStudent', handler.getParingStudent)
 app.get('/*', (req, res) => {
     res.sendFile(path.resolve(path.join(__dirname, '../pairing-system/build/index.html')))
 })
 
-const PORT = process.env.PORT || 7511;
+const PORT = process.env.PORT || 4024;
 if (!module.parent) {
     app.listen(PORT, () => {
         console.log(`Hello world is working on port: ${PORT}`);

@@ -1,6 +1,14 @@
 const db = require('./data-base/index').studentSchema
 
-
+exports.getParingStudent = (req, res) => {
+    db.find({}, (err, data) => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        res.send(data)
+    })
+}
 exports.addStudent = (req, res) => {
     const { studentName, level } = req.body;
     db.findOne({ studentName }, (err, student) => {
