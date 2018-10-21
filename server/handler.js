@@ -1,5 +1,20 @@
 const db = require('./data-base/index').studentSchema
+const histroy = require('./data-base/index').historySchema
 
+exports.saveStudents = (req, res) => {
+    const { student1, student2 } = req.body;
+    let saveStudent = new histroy({
+        student1,
+        student2
+    })
+    saveStudent.save((err, data) => {
+        if (err) {
+            console.log(err);
+            return
+        }
+        res.send(data)
+    })
+}
 exports.getParingStudent = (req, res) => {
     db.find({}, (err, data) => {
         if (err) {

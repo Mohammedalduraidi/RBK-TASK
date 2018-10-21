@@ -41,6 +41,7 @@ class Pairing extends Component {
         this.state = {
             Student2: [],
             filterStudent: [],
+            filterStudent1: [],
             message: ''
         }
     }
@@ -53,7 +54,7 @@ class Pairing extends Component {
             console.log(err);
         })
     }
-    
+
     pairing = () => {
         let ar = []
         let pair2 = []
@@ -77,9 +78,20 @@ class Pairing extends Component {
                 }
             }
         }
-        this.setState({ filterStudent: arr, message: "Look at your pair" })
+        this.setState({ filterStudent: arr, message: "Look at your pair", filterStudent1: pair2 })
     }
-
+    saveStudent = () => {
+        if (this.state.filterStudent1.length === 0) {
+            alert('add a pair before save ')
+        } else {
+            axios.post('/saveStudents', { student1: this.state.filterStudent1, student2: this.state.filterStudent })
+                .then(res => {
+                    alert('your data has been saved');
+                }).catch(err => {
+                    console.log(err);
+                })
+        }
+    }
     render() {
         const student1 = this.state.Student2.map(row => {
             return (
@@ -143,7 +155,7 @@ class Pairing extends Component {
                             borderRadius: '25px',
                             color: "white",
                             margin: "20px"
-                        }}>Save</Button>
+                        }} onClick={this.saveStudent}>Save</Button>
                     </Grid >
                 </Grid>
                 <Grid container>

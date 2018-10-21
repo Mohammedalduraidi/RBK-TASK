@@ -18,8 +18,12 @@ let studentSchema = new Schema({
     studentName: { type: String },
     level: { type: String }
 })
-
+let historySchema = new Schema({
+    student1: { type: [String] },
+    student2: { type: [String] }
+})
 
 studentSchema = mongoose.model('studentSchema', studentSchema);
-
+historySchema = mongoose.model('historySchema', historySchema);
 module.exports.studentSchema = studentSchema;
+module.exports.historySchema = historySchema;
