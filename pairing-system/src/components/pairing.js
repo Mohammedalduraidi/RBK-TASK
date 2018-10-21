@@ -16,6 +16,7 @@ const CustomTableCell = withStyles(theme => ({
     },
     body: {
         fontSize: 14,
+        width: "100%"
     },
 }))(TableCell);
 
@@ -42,7 +43,6 @@ class Pairing extends Component {
             Student2: [],
             filterStudent: [],
             filterStudent1: [],
-            message: ''
         }
     }
     componentDidMount() {
@@ -78,7 +78,7 @@ class Pairing extends Component {
                 }
             }
         }
-        this.setState({ filterStudent: arr, message: "Look at your pair", filterStudent1: pair2 })
+        this.setState({ filterStudent: arr, filterStudent1: pair2 })
     }
     saveStudent = () => {
         if (this.state.filterStudent1.length === 0) {
@@ -92,127 +92,79 @@ class Pairing extends Component {
                 })
         }
     }
+    //{one:filterStudent1 , two : filterStudent}
     render() {
         const student1 = this.state.Student2.map(row => {
             return (
-                <Paper className={this.props.classes.root} key={row}>
-                    <Table className={this.props.classes.table}>
-                        <TableHead>
-                            <TableRow>
-                                <CustomTableCell>Student1</CustomTableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-
-                            <TableRow className={this.props.classes.row} >
-                                <CustomTableCell component="th" scope="row">
-                                    {row.studentName}
-                                </CustomTableCell>
-
-                            </TableRow>
-
-                        </TableBody>
-                    </Table>
-                </Paper>
+                <TableRow className={this.props.classes.row} >
+                    <CustomTableCell component="th" scope="row">
+                        {row.studentName}
+                    </CustomTableCell>
+                </TableRow>
             )
-        })
+        }) 
         const student2 = this.state.filterStudent.map(elem => {
             return (
-                <Paper className={this.props.classes.root} key={elem}>
-                    <Table className={this.props.classes.table}>
-                        <TableHead>
-                            <TableRow>
-                                <CustomTableCell>Student2</CustomTableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            <TableRow className={this.props.classes.row} >
-                                <CustomTableCell component="th" scope="row">
-                                    {elem}
-                                </CustomTableCell>
-                            </TableRow>
-                        </TableBody>
-                    </Table>
-                </Paper>
+                <TableRow className={this.props.classes.row} >
+                    <CustomTableCell component="th" scope="row">
+                        {elem}
+                    </CustomTableCell>
+                </TableRow>
             )
         })
         return (
-            <Grid container>
-                <Grid container justify="space-evenly">
-                    <Grid item direction="row" >
-                        <Button style={{
-                            height: "50px",
-                            width: "200px",
-                            backgroundColor: "#5cb85c",
-                            borderRadius: '25px',
-                            color: "white",
-                            margin: "20px"
-                        }} onClick={this.pairing}>Pairing</Button>
-                        <Button style={{
-                            height: "50px",
-                            width: "200px",
-                            backgroundColor: "#5cb85c",
-                            borderRadius: '25px',
-                            color: "white",
-                            margin: "20px"
-                        }} onClick={this.saveStudent}>Save</Button>
-                    </Grid >
-                </Grid>
-                <Grid container>
-                    <Grid item>
-                        <br />
-                    </Grid>
-
-                </Grid>
-                <Grid container>
-
-                    <Grid item>
-                        <br />
-                    </Grid>
-
-                </Grid>
-
-                <Grid container justify="space-evenly" direction="row">
-                    <Grid item>
-                        <Grid container
-                            justify="flex-start" direction="column"
-                        >
-                            <Grid item>
-                                {student1}
-                            </Grid>
+            <Grid container direction='column' justify='space-evenly'>
+                <Grid item >
+                    <Grid container justify='space-around'>
+                        <Grid item>
+                            <Button style={{
+                                height: "50px",
+                                width: "200px",
+                                backgroundColor: "#5cb85c",
+                                borderRadius: '25px',
+                                color: "white",
+                                margin: "20px"
+                            }} onClick={this.pairing}>Pairing</Button>
                         </Grid>
-                    </Grid>
-                    <Grid item>
-                        <Grid container
-                            justify="flex-end" direction="column"
-                        >
-                            <Grid item>
-                                {student2}
-                            </Grid>
+                        <Grid item>
+                            <Button style={{
+                                height: "50px",
+                                width: "200px",
+                                backgroundColor: "#5cb85c",
+                                borderRadius: '25px',
+                                color: "white",
+                                margin: "20px"
+                            }} onClick={this.saveStudent}>Save</Button>
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid container>
-                    <Grid item>
-                        <br />
-                    </Grid>
-
+                <Grid item >
+                    <br />
                 </Grid>
-                <Grid container>
-
-                    <Grid item>
-                        <br />
-                    </Grid>
-
+                <Grid item >
+                    <br />
                 </Grid>
-                <Grid container justify="center" >
-                    <Grid item>
-                        <h1>{this.state.message}</h1>
+                <Grid item >
+                    <Grid container justify='space-evenly'>
+                        <Grid item>
+                            <Paper className={this.props.classes.root}>
+                                <Table className={this.props.classes.table}>
+                                    <TableHead>
+                                        <TableRow>
+                                            <TableCell>Student1</TableCell>
+                                            <TableCell> Student2 </TableCell>
+                                        </TableRow>
+                                    </TableHead>
+                                    <TableBody>
+                                        <TableCell>{student1}</TableCell>
+                                        <TableCell>{student2}</TableCell>
+                                    </TableBody>
+                                </Table>
+                            </Paper>
+                        </Grid>
                     </Grid>
-
                 </Grid>
             </Grid>
-
         )
     }
 }

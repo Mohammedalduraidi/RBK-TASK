@@ -80,9 +80,23 @@ exports.deleteStudent = (req, res) => {
     const { id } = req.body;
     db.findOneAndRemove({ _id: id }, (err, data) => {
         if (err) {
-            throw err;
+            console.log(err);
+            return;
         } else {
             res.sendStatus(200);
+            return;
         }
     })
 }
+
+exports.getHistory = (req, res) => {
+    histroy.find({}, (err, data) => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        res.send(data);
+        return;
+    })
+}
+
